@@ -45,13 +45,6 @@ age += 1
 print(f"Your name is : {name}")
 print(f"Your age is : {age}")
 
-# Excercise : Shopping cart program
-
-food = input("What would you like to order? : ")
-price = float(input("What is the price of food?:"))
-quantity = int(input("What is the quantity of order?:"))
-print(f"Total bill of ordered {food}/s : ${price * quantity}")
-
 # Day 2 : Arithmetic operations
 
 num = 1
@@ -93,37 +86,3 @@ print(f"e value is : {math.e}")
 print(f"floor value of {x} : {math.floor(x)}")
 print(f"ceil value of {x} : {math.ceil(x)}")
 print(f"sqrt value of {x} : {math.sqrt(x)}")
-
-# Exercise : find the circumference of circle
-radius = float(input("Enter the radius of circle : "))
-circumference = 2 * math.pi * radius
-print(f"Circumference value is : {round(circumference, 2)}")
-
-# Excercise : Area of the circle
-area = math.pi * pow(radius, 2)
-print(f"Area value is : {round(area, 2)}")
-
-# Exercise : find the hypotenuse of right triangle
-
-a = float(input("Enter the value a :"))
-b = float(input("Enter the value b :"))
-
-res = math.sqrt(pow(a, 2) + pow(b, 2))
-print(f"result is : {res}")
-
-# Exercise : calculator
-
-operator = input("Enter the operator (+,-,*,/)")
-num1 = float(input("Enter the humber 1 : "))
-num2 = float(input("Enter the humber 2 : "))
-
-if operator == "+":
-    print(round(num1 + num2, 2))
-elif operator == "-":
-    print(round(num1 - num2, 2))
-elif operator == "*":
-    print(round(num1 * num2, 2))
-elif operator == "/":
-    print(round(num1 / num2, 2))
-else:
-    print(f"Enter the operator {operator} is not valid")
