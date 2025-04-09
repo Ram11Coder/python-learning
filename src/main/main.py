@@ -86,3 +86,33 @@ print(f"e value is : {math.e}")
 print(f"floor value of {x} : {math.floor(x)}")
 print(f"ceil value of {x} : {math.ceil(x)}")
 print(f"sqrt value of {x} : {math.sqrt(x)}")
+
+# Logical operator = evaluate multiple conditions (and, or, not)
+# and - both condition must be True
+# or - at least one condition must be True
+# not - inverts the condition (not False, not True)
+
+
+# Conditional expression = A one-line shortcut for the if-else statement (ternary operator)
+# Print or assign one of two values based on a condition
+# X if condition else Y
+
+num = 6
+print("Positive" if num > 0 else "Negative")
+print("EVEN" if num % 2 == 0 else "ODD")
+
+
+# Useful string methods
+print(help(str))
+name = input("Enter the name : ")
+print(len(name))
+print(name.find("r"))
+print(name.capitalize())
+print(name.upper())
+print(name.lower())
+print(name.rfind("a"))
+print(name.isdigit())
+print(name.isalpha())
+print(name.count("a"))
+name = name.replace("a","b")
+print(name)
