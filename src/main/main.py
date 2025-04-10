@@ -101,7 +101,6 @@ num = 6
 print("Positive" if num > 0 else "Negative")
 print("EVEN" if num % 2 == 0 else "ODD")
 
-
 # Useful string methods
 print(help(str))
 name = input("Enter the name : ")
@@ -114,5 +113,93 @@ print(name.rfind("a"))
 print(name.isdigit())
 print(name.isalpha())
 print(name.count("a"))
-name = name.replace("a","b")
+name = name.replace("a", "b")
 print(name)
+
+username = input("Enter the username : ")
+
+if len(username) <= 12 and username.find(" ") == -1 and username.isalpha():
+    print(f"{username} statisfy the condition")
+else:
+    print(f"{username} does not statisfy the condition")
+
+# Indexing = accessing elements of a sequence using [] (Indexing operation)
+# [start : end : step]
+#
+# start : start of index
+# end : till the end of index
+# step : every step of index will be selected
+
+credit_card = "1234_5678_9012_3456"
+
+print(credit_card[0])
+print(credit_card[3])
+print(credit_card[0:4])
+print(credit_card[::])
+print(credit_card[:4])
+print(credit_card[:-4])
+print(credit_card[-4])
+print(credit_card[::2])
+print(credit_card[1:6:2])
+
+# reverse a credit card
+reversed_cc = credit_card[::-1]
+print(f"Reversed credit card : {reversed_cc}")
+
+# Format specifiers = {value:flags} format a value based on what flag are inserted
+
+# .(number)f = round to that many decimal places (fixed point)
+# .(number) = allocate that many spaces
+# :< = left justify
+# :> = right justify
+# :^ = center align
+# :+ = use a plus sign to indicate the positive values
+# := = place  sign to left most position
+# : = insert a space before positive numbers
+# :, = comma separator
+
+
+price1 = 1233.34
+price2 = -32.34
+
+print(f"Price 1 value : ${price1:.3f}")
+print(f"Price 2 value : ${price2:+.2f}")
+print(f"Price 1 value : ${price1:10}")
+print(f"Price 1 value : ${price1:010}")
+print(f"Price 1 value : ${price1:<10}")
+print(f"Price 1 value : ${price1:>10}")  # bydefault
+print(f"Price 1 value : ${price1:^10}")  # center aligned
+print(f"Price 1 value : ${price1:+}")  # positive symbol
+print(f"Price 1 value : ${price1: }")  # positive symbol
+print(f"Price 1 value : ${price1:,}")
+print(f"Price 1 value : ${price1:+,.2f}")
+
+# while loop
+
+# print 0 to entered number
+
+n = int(input("Enter the number : "))
+i = 0
+while i <= n:
+    print(i)
+    i += 1
+
+numb = int(input("Enter the input : "))
+while True:
+    if numb < 0:
+        print("Input should be positive, please provide +ve input again :")
+        numb = int(input())
+    else:
+        break
+
+
+# for loop -> fixed no of iteration
+
+for i in range(0,6):
+    print(i)
+
+# reverse for loop
+for x in reversed(range(1,11)):
+    print(x)
+
+print("HAPPY NEW YEAR!")
