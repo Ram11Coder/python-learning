@@ -192,14 +192,71 @@ while True:
     else:
         break
 
-
 # for loop -> fixed no of iteration
 
-for i in range(0,6):
+for i in range(0, 6):
     print(i)
 
 # reverse for loop
-for x in reversed(range(1,11)):
+for x in reversed(range(1, 11)):
     print(x)
 
 print("HAPPY NEW YEAR!")
+
+# dir -> List the different methods in the collection
+# print(dir(num))
+
+# help(num)
+
+# collection = single variable to store multiple values
+# List = [] ordered and changeable. Duplicates OK
+# Set = {} unordered and immutable, but add/remove OK. No Duplicates
+# Tuple = () ordered and unchangeable
+# in -> to check the value in the collection
+
+fruits = ["Apple", "Orange", "Banana"]
+
+for fruit in fruits:
+    print(fruit)
+
+print("Orange" in fruits)
+
+fruits[1] = "Grape"
+print(fruits[1])
+fruits.append("Pineapple")
+print(fruits.index("Pineapple"))
+fruits.insert(0, "Mango")
+fruits.sort()
+print(fruits.reverse())
+print(fruits)
+fruits.clear()
+print(fruits)
+# fruits.remove("Pineapple")
+print(fruits.count("Mango"))
+
+# Set:
+
+colors = {"RED", "ORANGE", "GREEN"}
+
+# print(colors[0]) throws error because it is unordered
+print("YELLOW" in colors)
+colors.add("GREEN")
+colors.add("PINK")
+
+for color in colors:
+    print(color)
+print(len(colors))
+colors.remove("PINK")
+colors.pop()
+print(colors)
+colors.clear()
+
+# Tuple
+
+days = ("MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY", "SUNDAY")
+
+# tuple' object does not support item assignment
+# days[0] ="MOONDAY"
+print(days)
+print(days.count("MONDAY"))
+print(days.index("WEDNESDAY"))
