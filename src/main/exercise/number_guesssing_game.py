@@ -16,14 +16,13 @@ while is_running:
         if not low_num < number_guess < high_num:
             print(f"Enter the number between {low_num} and {high_num}")
         elif number_guess > rand_num:
-                print(f"{number_guess} is greater than guessing number")
+            print("Too high... try again!")
         elif number_guess < rand_num:
-                print(f"{number_guess} is lower than guessing number")
+            print("Too low... try again!")
         else:
-                print(f"{number_guess} is CORRECT!")
-                break
+            print(f"CORRECT! number was : {rand_num}")
+            print(f"No of guesses : {guessing_count}")
+            break
     else:
         print("Invalid guess!!")
         print(f"Enter the number between {low_num} and {high_num}")
-
-print(f"Total guessing : {guessing_count} , number was : {rand_num}")
