@@ -315,9 +315,8 @@ for val in states_capital.values():
 items = states_capital.items()  # [(),(),()]
 print(items)
 
-for k,v in states_capital.items():
+for k, v in states_capital.items():
     print(f"{k} : {v}")
-
 
 # Random
 
@@ -325,7 +324,7 @@ import random
 
 low = 1
 high = 100
-print(random.randint(low,high))
+print(random.randint(low, high))
 options = ["rock", "paper", "scissor"]
 
 option = random.choice(options)
@@ -333,6 +332,30 @@ print(option)
 
 print(random.random())
 
-cards = ["2", "3", "4","5","6","7","8","9","A","K","Q"]
+cards = ["2", "3", "4", "5", "6", "7", "8", "9", "A", "K", "Q"]
 random.shuffle(cards)
 print(cards)
+
+
+# function = A block of reusable code
+#            place () after the function name to invoke it
+
+
+def call_me(name):
+    print(f"Hey! call me as {name}")
+
+
+call_me("Rocky")
+
+
+# return = statement used to end a function and send a result back to caller
+
+
+def second_max(li):
+    li = list(set(li))
+    li.sort(reverse=True)
+    return li[1]
+
+
+arg = [3, 2, 1, 6, 3, 6]
+print(second_max(arg))
