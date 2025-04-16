@@ -426,6 +426,7 @@ def print_name(*args):
 print_name("Mr.", "Rocky", "Bhai")
 print()
 
+
 # The ** operator unpacks a dictionary, spreading out its key-value pairs.
 # You're passing a dictionary as named arguments to a function.
 #
@@ -440,3 +441,31 @@ def print_address(**kwargs):
 
 
 print_address(street="Vivekanandha Street", dist="Chennai", state="TN", pin="123456")
+
+# Iterables = An object/collection that can return its element one at a time,
+# allowing it to be iterated over in a loop
+# ex: list,set,tuple,dict,string
+
+# Membership operator : used to test whether a value or variable is found in a sequence
+#                       (string, list, tuple, set, dict)
+#                       1. in
+#                       2. not in
+
+
+fruit = "APPLE"
+ch = input("Enter a character : ")
+if ch in fruit:
+    print(f"{ch} is present in {fruit}")
+else:
+    print(f"{ch} is not present in {fruit}")
+
+
+grade_dict = {"Ram" : "A","Raju" : "C","Rocky" : "F","Revi" : "B"}
+
+student = input("Enter the student to get grade details : ")
+
+if student in grade_dict:
+    print(f"{student} grade is : {grade_dict[student]}")
+else:
+    print(f"{student} is not present")
+
