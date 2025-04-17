@@ -459,8 +459,7 @@ if ch in fruit:
 else:
     print(f"{ch} is not present in {fruit}")
 
-
-grade_dict = {"Ram" : "A","Raju" : "C","Rocky" : "F","Revi" : "B"}
+grade_dict = {"Ram": "A", "Raju": "C", "Rocky": "F", "Revi": "B"}
 
 student = input("Enter the student to get grade details : ")
 
@@ -469,3 +468,12 @@ if student in grade_dict:
 else:
     print(f"{student} is not present")
 
+# list comprehension = A concise way to create lists in python
+#                     compact and easier to read than traditional loops
+# syntax: [expression for value in iterable if condition]
+
+triples = [x * 3 for x in range(0, 11)]
+print(triples)
+
+numbers = [1, -2, 3, -4, 5, -6]
+print([num for num in numbers if num > 0])
