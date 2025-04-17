@@ -512,45 +512,80 @@ print(day_of_week("Pizza"))
 # use 'import' to include a module (built-in or your own)
 # useful to break up a large program reusable separate files
 
-#print(help("modules"))
+# print(help("modules"))
 
 # import math
 import math as m
+
 print(m.pi)
 from math import pi
+
 print(pi)
 
 import math_module as mm
+
 print(mm.pi)
 print(mm.sq(10))
+
 
 # variable scope : Where a variable is visible and accessible
 # scope resolution : (LEGB) Local -> Enclosed -> Global -> Built-in
 
 # local
 def func():
-    x =1
+    x = 1
     print(x)
+
 
 func()
 
+
 # enclosed
 def func1():
-    x =2
+    x = 2
+
     def func2():
         print(x)
+
     func2()
+
 
 func1()
 
 # Global - outside of any func()
-x =3
+x = 3
+
 
 def func3():
     print(x)
 
+
 func3()
 
 from math import e
+
 print(e)
 
+# if __name__ = __main__: (this script can be imported or run standalone)
+# Functions and classes in this module can be reused without the main block of code executing
+# Good practise (code is modular,
+# helps readability, leaves no global variables, avoid unintended execution)
+#
+# ex : Library = import lib for functionality
+# when running lib directly, display a help page
+# In Python, every module has a built-in variable called __name__:
+# If the file is being run directly, __name__ == "__main__"
+# If the file is being imported, __name__ == "module_name"
+#  Why is this useful?
+# To separate logic: Keeps function definitions separate from runtime behavior.
+# To prevent side effects when importing code.
+# To support reusability and testing: You can import functions without accidentally running the whole script.
+
+print(__name__)
+
+def main():
+    print("inside main : ")
+
+if __name__ == '__main__':
+    main()
+import other_module
