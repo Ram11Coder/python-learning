@@ -688,11 +688,15 @@ class Prey(Animal):
     def flee(self):
         print(f"{self.name} is fleeing")
 
+    def alive(self):
+        print(f"Prey {self.name} is alive")
+
 
 class Predator(Animal):
     def hunt(self):
         print(f"{self.name} is hunting")
-
+    def alive(self):
+        print(f"Predator {self.name} is alive")
 
 class Rabbit(Prey):
     pass
@@ -702,7 +706,7 @@ class Hawk(Predator):
     pass
 
 
-class Fish(Prey, Predator):
+class Fish(Predator,Prey):
     pass
 
 
@@ -721,3 +725,4 @@ fish.eat()
 fish.sleep()
 fish.flee()
 fish.hunt()
+fish.alive()
