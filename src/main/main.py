@@ -837,6 +837,7 @@ shapes = [Circle(4), Square(5), Triangle(3, 4), Pizza(topping="pepperoni", radiu
 for shape in shapes:
     print(f"Area is : {shape.area():.2f}/cm2")
 
+
 # pizza consider 3 forms (Pizza,Circle,Shape)
 
 # Duck typing = Another way to achieve polymorphism besides inheritance
@@ -850,6 +851,7 @@ class Duck:
     def swim(self):
         print("Swimming like a duck 🦆")
 
+
 class Person:
     def quack(self):
         print("I'm imitating a duck!")
@@ -857,13 +859,47 @@ class Person:
     def swim(self):
         print("I'm swimming... cautiously.")
 
+
 def in_pond(thing):
     # We only care if 'thing' can quack() and swim(), not its type
     thing.quack()
     thing.swim()
 
+
 donald = Duck()
 alice = Person()
 
 in_pond(donald)  # Quack! / Swimming like a duck 🦆
-in_pond(alice)   # I'm imitating a duck! / I'm swimming... cautiously.
+in_pond(alice)  # I'm imitating a duck! / I'm swimming... cautiously.
+
+
+# Static methods = A method that belong to a class rather than any object from that class(instance) usually used for general utility functions
+#
+# Instance methods = Best for operations on instance of the class (objects)
+# Static methods = Best for utility functions that do not need access to class data
+
+class Employee:
+    def __init__(self, name, position):
+        self.name = name
+        self.position = position
+
+    # Instance method
+    def emp_details(self):
+        return f"{self.name} = {self.position}"
+
+    # Static method
+    @staticmethod
+    def is_valid_job_position(position):
+        job_positions = ["Developer", "Tester", "Manager"]
+        return position in job_positions
+
+
+print(Employee.is_valid_job_position("Manager"))
+print(Employee.is_valid_job_position("Architect"))
+
+emp1 = Employee("Ram", "Developer")
+emp2 = Employee("Rocky", "Tester")
+
+print(emp1.emp_details())
+print(emp2.emp_details())
+print(emp1.is_valid_job_position("Tester"))
