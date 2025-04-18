@@ -583,9 +583,41 @@ print(e)
 
 print(__name__)
 
+
 def main():
     print("inside main : ")
+
 
 if __name__ == '__main__':
     main()
 import other_module
+
+# Python OOPS
+# object = A "bundle" of related attributes(variables) and methods (functions)
+#          Ex: Phone, cup, book
+#          You need a "class" to create many objects
+# class = A blueprint used to design the structure and layout of an object
+
+# dunder method = double underscore method
+# constrcutor (__init__(self))
+
+# instance var - defined inside the constructor
+from car import Car
+
+car1 = Car("BMW", 2024, "Black", False)
+print(car1.num_of_cars)
+car2 = Car("Jaguar", 2025, "White", True)
+car3 = Car("Audi", 2024, "Yellow", False)
+
+car1.describe()
+car1.drive()
+car1.stop()
+
+# class var = shared among all instances of class
+#               Define outside the constructor
+#               Allow you to share data among all objects created from that class
+
+
+print(car1.num_of_cars)
+# Class variable directly access from Class
+print(Car.num_of_cars)
