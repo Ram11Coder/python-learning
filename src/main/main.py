@@ -771,7 +771,7 @@ class Triangle(Shape):
         self.height = height
 
     def describe(self):
-        print(f"It is triangle with an area of { self.width * self.height/2}cm^2")
+        print(f"It is triangle with an area of {self.width * self.height / 2}cm^2")
         super().describe()
 
 
@@ -782,3 +782,88 @@ triangle = Triangle("Yellow", True, height=5, width=6)
 circle.describe()
 square.describe()
 triangle.describe()
+
+#   Polymorphism = Greek word that means to "have many forms or faces"
+#			   Poly = Many
+#			   Morph = Form
+#
+#			   Two ways to acheive polymorphism
+#   		   1. Inheritancce = An object could be treated of the same type as a parent class
+#			   2. Duck typing = Object must have necessary attributes/methods
+
+
+from abc import ABC, abstractmethod
+
+
+class Shape:
+    @abstractmethod
+    def area(self):
+        pass
+
+
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        return pi * self.radius ** 2
+
+
+class Square(Shape):
+    def __init__(self, height):
+        self.height = height
+
+    def area(self):
+        return self.height ** 2
+
+
+class Triangle(Shape):
+    def __init__(self, base, height):
+        self.base = base
+        self.height = height
+
+    def area(self):
+        return self.base * self.height * 0.5
+
+
+class Pizza(Circle):
+    def __init__(self, radius, topping):
+        super().__init__(radius)
+        self.topping = topping
+
+
+shapes = [Circle(4), Square(5), Triangle(3, 4), Pizza(topping="pepperoni", radius=15)]
+
+for shape in shapes:
+    print(f"Area is : {shape.area():.2f}/cm2")
+
+# pizza consider 3 forms (Pizza,Circle,Shape)
+
+# Duck typing = Another way to achieve polymorphism besides inheritance
+#               Object must have the minimum necessary attributes/methods
+#               "If it looks like a duck and quacks like a duck, it must be a duck"
+
+class Duck:
+    def quack(self):
+        print("Quack!")
+
+    def swim(self):
+        print("Swimming like a duck 🦆")
+
+class Person:
+    def quack(self):
+        print("I'm imitating a duck!")
+
+    def swim(self):
+        print("I'm swimming... cautiously.")
+
+def in_pond(thing):
+    # We only care if 'thing' can quack() and swim(), not its type
+    thing.quack()
+    thing.swim()
+
+donald = Duck()
+alice = Person()
+
+in_pond(donald)  # Quack! / Swimming like a duck 🦆
+in_pond(alice)   # I'm imitating a duck! / I'm swimming... cautiously.
