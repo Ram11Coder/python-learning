@@ -1,4 +1,5 @@
 # Day 1 - first program
+import string
 import time
 
 print("Hello world!")
@@ -1034,7 +1035,6 @@ class Rectangle:
         else:
             print("Height must be greater than zero")
 
-
     @height.deleter
     def height(self):
         del self._height
@@ -1048,9 +1048,41 @@ class Rectangle:
 
 rectangle = Rectangle(3, 4)
 
-rectangle.height=5
-rectangle.width=6
+rectangle.height = 5
+rectangle.width = 6
 print(rectangle.height)
 print(rectangle.width)
 del rectangle.height
 del rectangle.width
+
+
+# Decorator =  A function that extends the behaviour of another function
+# without modifying the base function
+# Pass the base function as an argument to the decorator
+#
+# 	 @add_sprinkles
+# ex : get_ice_cream("Vanilla")
+
+def add_sprinkles(func):
+    def wrapper(*args, **kwargs):
+        print("Added sprinkles")
+        func(*args, **kwargs)
+
+    return wrapper
+
+
+def add_fudge(func):
+    def wrapper(*args, **kwargs):
+        print("Added fudge")
+        func(*args, **kwargs)
+
+    return wrapper
+
+
+@add_sprinkles
+@add_fudge
+def get_ice_cream(flavour):
+    print(f"This is your {flavour} ice cream")
+
+
+get_ice_cream("Vanila")
