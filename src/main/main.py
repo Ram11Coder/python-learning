@@ -1154,15 +1154,48 @@ except FileExistsError:
 import csv
 
 employee_list = [["Name", "Age", "Job"],
-                ["Ram", 27, "Senior developer"],
-                ["Vicky", 28, "Senior UI developer"],
-                ["Siva", 30, "Tester"], ]
+                 ["Ram", 27, "Senior developer"],
+                 ["Vicky", 28, "Senior UI developer"],
+                 ["Siva", 30, "Tester"], ]
 csv_file_path = "emp.csv"
 try:
-    with open(file=csv_file_path, mode='w',newline="") as file:
+    with open(file=csv_file_path, mode='w', newline="") as file:
         writer = csv.writer(file)
         for row in employee_list:
             writer.writerow(row)
         print(f"csv file {csv_file_path} was created")
 except FileExistsError:
     print("The file already exist")
+
+# file reading
+
+# text file read
+try:
+    with open(file_path, 'r') as file:
+        content = file.read()
+        print(content)
+except FileNotFoundError:
+    print("That file was not found")
+except PermissionError:
+    print('You do not have read permission for that file')
+
+
+# Json file read
+try:
+    with open(json_file_path, 'r') as file:
+        content = json.load(file)
+        print(content)
+except FileNotFoundError:
+    print("That file was not found")
+except PermissionError:
+    print('You do not have read permission for that file')
+
+# Json file read
+try:
+    with open(csv_file_path, 'r') as file:
+        for line in csv.reader(file):
+            print(line)
+except FileNotFoundError:
+    print("That file was not found")
+except PermissionError:
+    print('You do not have read permission for that file')
