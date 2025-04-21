@@ -1093,7 +1093,7 @@ get_ice_cream("Vanila")
 
 try:
     num = int(input("Enter the number : "))
-    print(1/num)
+    print(1 / num)
 except ZeroDivisionError:
     print("You can't divide by zero!")
 except ValueError:
@@ -1102,3 +1102,21 @@ except Exception:
     print("Something went wrong!")
 finally:
     print("Clean up activity ")
+
+# python file detection
+
+import os
+
+# Relative file path :exercise\test.txt
+#  Absolute file path : C:\Users\intel\PycharmProjects\python-learning\src\main\exercise\test.txt
+file_path = "exercise\\test.txt"
+
+if os.path.exists(file_path):
+    print(f"The location '{file_path}' is exist!")
+    if os.path.isfile(file_path):
+        print("This is a file")
+    elif os.path.isdir(file_path):
+        print("This is a folder")
+else:
+    print("The location does not exist")
+
