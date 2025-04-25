@@ -25,3 +25,6 @@ def alarmClock(alarm_time):
 if __name__ == '__main__':
     alarm_time = input("Enter the time format in (HH:MM:SS) : ")
     alarmClock(alarm_time)
+
+
+# multi threading
