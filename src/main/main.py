@@ -105,7 +105,7 @@ print("Positive" if num > 0 else "Negative")
 print("EVEN" if num % 2 == 0 else "ODD")
 
 # Useful string methods
-print(help(str))
+# print(help(str))
 name = input("Enter the name : ")
 print(len(name))
 print(name.find("r"))
@@ -173,7 +173,7 @@ print(f"Price 1 value : ${price1:<10}")
 print(f"Price 1 value : ${price1:>10}")  # bydefault
 print(f"Price 1 value : ${price1:^10}")  # center aligned
 print(f"Price 1 value : ${price1:+}")  # positive symbol
-print(f"Price 1 value : ${price1: }")  # positive symbol
+print(f"Price 1 value : ${price1: }")
 print(f"Price 1 value : ${price1:,}")
 print(f"Price 1 value : ${price1:+,.2f}")
 
@@ -377,7 +377,7 @@ print(net_price(500, 0.1))
 print(net_price(500))
 
 
-def time_counter(end, start=0):  # default argument preceed with non-default argument
+def time_counter(end, start=0):  # default argument preceded with non-default argument
     for i in range(start, end):
         time.sleep(1)
         print(i)
@@ -481,7 +481,7 @@ print([num for num in numbers if num > 0])
 
 
 # Match-case statement (switch)= An alternative to using many elif statements
-# Execute some code if a value matche 'case'
+# Execute some code if a value match 'case'
 # Benefits : cleaner and syntax is more readable
 # case - => wildcard
 
@@ -624,6 +624,30 @@ print(car1.num_of_cars)
 print(Car.num_of_cars)
 
 
+# Python by default not support the private,public and protected attribute
+# but we can use naming convention to achieve it
+
+class Animal:
+    family = "Animal family"
+    _statement = "I love animals"
+
+    def __init__(self, type):
+        self.type = type
+        self.__name = "Max"
+
+
+cat = Animal("cat")
+print(f"Instannce var = {cat.type}")
+print(f"Class var = {Animal.family}")
+
+# protected means we don't want to access this statement outside of this class
+print(f"Protected var = {Animal._statement}")
+
+
+# private access = _[clas_name].__[var_name]
+# print(f"private var = {cat._Animal.__name}")
+
+
 # Inheritance = Allow a class to inherit attributes and methods from another class
 #               Helps with code reusability and extensibility
 #               ex: class Child(Parent)
@@ -671,7 +695,7 @@ mouse.speak()
 
 # Multiple inheritance = Inherit from more than one parent class
 # 						Ex: C(A,B)
-# Multilevel Inheritancce = Inherit from the parent which inherit from another parent
+# Multilevel Inheritance = Inherit from the parent which inherit from another parent
 # 						Ex: C(B) <- B(A) <- A
 
 class Animal:
@@ -784,12 +808,12 @@ circle.describe()
 square.describe()
 triangle.describe()
 
-#   Polymorphism = Greek word that means to "have many forms or faces"
+# Polymorphism = Greek word that means to "have many forms or faces"
 #			   Poly = Many
 #			   Morph = Form
 #
 #			   Two ways to acheive polymorphism
-#   		   1. Inheritancce = An object could be treated of the same type as a parent class
+#   		   1. Inheritance = An object could be treated of the same type as a parent class
 #			   2. Duck typing = Object must have necessary attributes/methods
 
 
@@ -874,7 +898,8 @@ in_pond(donald)  # Quack! / Swimming like a duck 🦆
 in_pond(alice)  # I'm imitating a duck! / I'm swimming... cautiously.
 
 
-# Static methods = A method that belong to a class rather than any object from that class(instance) usually used for general utility functions
+# Static methods = A method that belong to a class rather than any object from that class(instance) usually used for
+# general utility functions
 #
 # Instance methods = Best for operations on instance of the class (objects)
 # Static methods = Best for utility functions that do not need access to class data
@@ -952,7 +977,6 @@ Student.get_count()
 # They are automatically called by many of pythons built-in operations.
 # They allow developers to define or customize the behaviour of objects
 
-
 class Book:
 
     # constructor
@@ -1007,7 +1031,7 @@ print(book1['title'])
 # Benefits : Add additional logic when read,write or delete attribute
 # Gives you getter, setter and deleter method
 
-# _attribure -> private var
+# _attribute -> private var
 class Rectangle:
     def __init__(self, height, width):
         self._height = height
@@ -1131,7 +1155,7 @@ with open(file=file_path, mode='w') as file:
     file.write(txt_data)
     print(f"txt file {file_path} was created")
 
-# mode (x) - create a file if not exists, if it already exists then throes FileExistsError exception
+# mode (x) - create a file if not exists, if it already exists then throws FileExistsError exception
 # mode (r) - read the file
 # mode (a) - append the file
 # mode (w) - It will override the file
@@ -1222,7 +1246,6 @@ if target_date_time < now:
 else:
     print("Target date has not passed")
 
-
 # multithreading = Used to perform multiple tasks concurrently (multitasking)
 #                  Good for I/O bound tasks like reading files or fetching data from APIs
 #                  threading.Thread(target=my_function)
@@ -1236,15 +1259,19 @@ def walk_dog(first):
     time.sleep(8)
     print(f"You finish walking {first}")
 
+
 def read_book():
     time.sleep(2)
     print(f"You finish reading book")
+
 
 def send_mail():
     time.sleep(4)
     print(f"You finish sending mail")
 
-chore1 =threading.Thread(target=walk_dog,args=("Scooby",)) # if it is only one arg then we need to end with , then python consider as tuple
+
+chore1 = threading.Thread(target=walk_dog, args=(
+    "Scooby",))  # if it is only one arg then we need to end with , then python consider as tuple
 chore1.start()
 
 chore2 = threading.Thread(target=read_book)
@@ -1258,11 +1285,11 @@ chore2.join()
 chore3.join()
 print("All chores are completed!")
 
-
 # Fetch API response
 import requests
 
 base_url = "https://pokeapi.co/api/v2/"
+
 
 def pokemon_info(name):
     url = f"{base_url}pokemon/{name}"
@@ -1273,6 +1300,7 @@ def pokemon_info(name):
         return pokemon_data
     else:
         print(f"Failed to retrieve data {response.status_code}")
+
 
 pokeman = "pikachu"
 
